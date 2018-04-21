@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
+
+  <!-- Custom CSS -->
+  <link href="style.css" type="text/css" rel="stylesheet">
+
+  <title>Online Food Ordering Service</title>
+</head>
+
+<body id="body">
+  <header>
+    <div class="container-fluid">
+      <nav>
+        <ul>
+          <img class="navbar-brand logo" src="images/OFOSLogo.png" width="74px" height="40px">
+          <div class="navTabs">
+            <li>
+              <a onclick="nav.navigate('index.html', '', false)" id="tab" class="navTab boldText">HOME</a>
+            </li>
+            <li>
+              <a onclick="nav.navigate('index.html', 'menu=true', true)" id="tab" class="navTab boldText">MENU</a>
+            </li>
+            <li>
+              <a onclick="nav.navigate('about.html', '', false)" id="tab" class="navTab boldText">ABOUT US</a>
+            </li>
+            <li>
+              <a onclick="nav.navigate('index.html', 'edit=true', true)" id="tab" class="navTab boldText">ACCOUNT</a>
+            </li>
+          </div>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <h1 id="title"></h1>
+
+  <!-- Signup -->
+  <div id="signUpContainer" class="container">
+    <div class="signinbox">
+      <img src="images/avatar.jpg" class="avatar">
+      <h1 id="panelTitle">Sign Up</h1>
+      <form method="GET">  
+        <p id="emailTitle">Email</p>
+        <input type="text" placeholder="Enter Email" id="signUpEmail" />
+        <p id="passwordTitle">Password</p>
+        <input type="text" placeholder="Enter Password" id="signUpPassword" />
+        <p>Address</p>
+        <input type="text" placeholder="Enter Address" id="signUpAddress" />
+        <p id="creditCardTitle">Credit Card #</p>
+        <input type="text" placeholder="Enter Credit Card #" id="signUpCreditCard" />
+        <p id="firstNameTitle">First Name</p>
+        <input type="text" placeholder="Enter First Name" id="signUpFirstName" />
+        <p id="lastNameTitle">Last Name</p>
+        <input type="text" placeholder="Enter Last Name" id="signUpLastName" />
+
+        <div id="signUpBtn">
+          <input type="button" value="Sign Up" id="submit" onclick="customerLogin.createAccount()" />
+        </div>
+        <div id="saveBtn">
+          <input type="button" value="Save Changes" id="submit" onclick="customerLogin.editAccount()" />
+        </div>
+        <br>
+      </form>
+    </div>
+  </div>
+
+  <!-- Login -->
+  <div id="loginContainer" class="container">
+    <div class="loginbox">
+      <img src="images/avatar.jpg" class="avatar">
+      <h1>Log In</h1>
+      <form method="GET">
+        <p>Email</p>
+        <input type="text" placeholder="Enter Email" id="username" />
+        <p>Password</p>
+        <input type="password" placeholder="Enter Password" id="password" />
+        <input type="button" value="Log In" id="submit" onclick="customerLogin.validate()" />
+        <p class="loginLink" onclick="customerLogin.viewSignUp()">Create Account</p>
+        <br>
+        <p class="loginLink" onclick="">Forgot password?</p>
+      </form>
+    </div>
+  </div>
+
+  <!-- Menu -->
+  <div id="menuContainer">
+    <h1 id="title" class="pageTitle">
+      Menu
+    </h1>
+    <div id="menubox">
+      <div id="menuPanel" class="container-fluid">
+        <div id="item1" class="card">
+          <img src="images/pizza.jpg" alt="Pepperoni Pizza" style="width: 300px; height: 300px;" class="images">
+          <button onclick="order.removeItem(menu.menuItems[0])" class="itemQuantityBtn">-</button>
+          <p id="pizzaAmount" class="amount"></p>
+          <button onclick="order.addItem(menu.menuItems[0])" class="itemQuantityBtn">+</button>
+          <p id="pizza" class="item"></p>
+        </div>
+
+        <div id="item2" class="card">
+          <img src="images/burger.jpg" alt="Cheeseburger" style="width: 300px; height: 300px;" class="images">
+          <button onclick="order.removeItem(menu.menuItems[1])" class="itemQuantityBtn">-</button>
+          <p id="burgerAmount" class="amount"></p>
+          <button onclick="order.addItem(menu.menuItems[1])" class="itemQuantityBtn">+</button>
+          <p id="burger" class="item"></p>
+        </div>
+
+        <div id="item3" class="card">
+          <img src="images/hot-dog.jpg" alt="Hot Dog" style="width: 300px; height: 300px;" class="images">
+          <button onclick="order.removeItem(menu.menuItems[2])" class="itemQuantityBtn">-</button>
+          <p id="hotDogAmount" class="amount"></p>
+          <button onclick="order.addItem(menu.menuItems[2])" class="itemQuantityBtn">+</button>
+          <p id="hotDog" class="item"></p>
+        </div>
+
+        <div id="item4" class="card">
+          <img src="images/soup.jpg" alt="Tomato Soup" style="width: 300px; height: 300px;" class="images">
+          <button onclick="order.removeItem(menu.menuItems[3])" class="itemQuantityBtn">-</button>
+          <p id="soupAmount" class="amount"></p>
+          <button onclick="order.addItem(menu.menuItems[3])" class="itemQuantityBtn">+</button>
+          <p id="soup" class="item"></p>
+        </div>
+
+        <div id="item5" class="card">
+          <img src="images/steak.jpg" alt="Steak" style="width: 300px; height: 300px;" class="images">
+          <button onclick="order.removeItem(menu.menuItems[4])" class="itemQuantityBtn">-</button>
+          <p id="steakAmount" class="amount"></p>
+          <button onclick="order.addItem(menu.menuItems[4])" class="itemQuantityBtn">+</button>
+          <p id="steak" class="item"></p>
+        </div>
+
+        <div id="item6" class="card">
+          <img src="images/pie.jpg" alt="Pie" style="width: 300px; height: 300px;" class="images">
+          <button onclick="order.removeItem(menu.menuItems[5])" class="itemQuantityBtn">-</button>
+          <p id="pieAmount" class="amount"></p>
+          <button onclick="order.addItem(menu.menuItems[5])" class="itemQuantityBtn">+</button>
+          <p id="pie" class="item"></p>
+        </div>
+
+        <div id="bottomDiv" class="container">
+          <select id="select" class="menuOrderDetails" onchange="order.selectOrderType()">
+            <option value="delivery">Delivery</option>
+            <option value="pickup">Pickup</option>
+          </select>
+          <div id="menuSpacer" class="menuOrderDetails"></div>
+          <!--spacer-->
+          <p id="orderTotal" class="menuOrderDetails"></p>
+          <div id="checkoutbutton" class="menuOrderDetails">
+            <button onclick="order.checkout()" class="actionBtn">Checkout</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Checkout -->
+  <div id="checkoutContainer">
+    <h1 id="title" class="pageTitle">
+      Checkout
+    </h1>
+    <div class="container checkoutPanel">
+      <div class="card card-body">
+        <table id="orderDisplay" class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th>Item</th>
+              <th>Qty</th>
+              <th>Price</th>
+            </tr>
+          </thead>
+        </table>
+        <hr>
+        <div class="card-group">
+          <div id="customerInfo" class="card transactionInfo">
+            <span class="boldText">
+              Customer Details
+              <button id="editActBtn" class="actionBtn" onclick="customerLogin.viewEditAccount()">Edit Account</button>
+            </span>
+            <table id="customerDetails">
+              <tr id="customerNameDisplay"></tr>
+              <tr id="customerAddressDisplay"></tr>
+              <tr id="customerCreditCardDisplay"></tr>
+            </table>
+          </div>
+          <div id="transactionDisplay" class="card transactionInfo">
+            <table id="transactionTotals" class="table">
+              <tr id="subtotal"></tr>
+              <tr id="orderType"></tr>
+              <tr id="tax"></tr>
+              <tr id="total"></tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="btnContainer">
+      <button class="actionBtn" onclick="order.editOrder()">Edit Order</button>
+      <button class="actionBtn" onclick="order.placeOrder()">Place Order</button>
+    </div>
+  </div>
+
+  <!-- Our scripts -->
+  <script src="navBar.js"></script>
+  <script src="login.js"></script>
+  <script src="menu.js"></script>
+
+  <!-- Bootstrap Javascript libraries -->
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
